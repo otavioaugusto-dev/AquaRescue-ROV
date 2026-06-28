@@ -18,7 +18,7 @@ Robotics Club – Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
 Otávio Augusto
 
 **Document Version:**  
-v0.3
+v0.4
 
 **Document Status:**  
 In Development
@@ -640,6 +640,240 @@ Even if the video stream experiences temporary degradation, the operator maintai
 This modular communication architecture improves operational safety during rescue missions.
 
 
+---
+
+# 12. Power Distribution System
+
+## Overview
+
+Reliable power distribution is essential for autonomous robotic platforms operating in remote environments. Since the AquaRescue platform performs propulsion, illumination, wireless communication, image acquisition, and embedded control simultaneously, the electrical system was designed to isolate high-current loads from sensitive electronic devices.
+
+The platform uses two interchangeable battery packs, allowing continuous operation while one pack is being recharged.
+
+---
+
+## Battery System
+
+The primary energy source consists of lithium-ion 18650 rechargeable cells assembled into custom battery packs.
+
+### Battery Specifications
+
+| Parameter | Value |
+|-----------|-------|
+| Battery Chemistry | Li-Ion 18650 |
+| Configuration | 3S10P |
+| Cells per Pack | 30 |
+| Number of Packs | 2 |
+| Nominal Voltage | 11.1 V |
+| Maximum Voltage | 12.6 V |
+
+Using two independent battery packs allows uninterrupted field operation by replacing the depleted pack while charging the spare unit.
+
+---
+
+## Power Distribution
+
+The battery pack supplies power to different subsystems according to their electrical requirements.
+
+```text
+          Li-Ion Battery Pack
+                  │
+        ┌─────────┴─────────┐
+        │                   │
+   DC Motors          Voltage Regulator
+                            │
+        ┌───────────────────┴───────────────────┐
+        │                                       │
+    Arduino UNO                           ESP32-CAM
+        │                                       │
+ Relay Modules                          Wireless Streaming
+        │
+ Lighting
+        │
+ Camera Winch
+```
+
+Future versions of this document will include the complete electrical schematic.
+
+---
+
+## Voltage Regulation
+
+Because the robotic platform integrates electronic modules operating at different voltage levels, dedicated voltage regulators are used to supply low-voltage electronics while isolating them from motor-induced voltage fluctuations.
+
+The regulated supply powers:
+
+- Arduino Uno
+- ESP32-CAM
+- Bluetooth Module
+- Logic circuits
+
+This architecture improves electrical stability and reduces the risk of unexpected microcontroller resets caused by propulsion motor startup currents.
+
+---
+
+## Engineering Considerations
+
+The power distribution architecture prioritizes simplicity, maintainability, and field reliability over electrical complexity.
+
+Separating propulsion loads from embedded electronics reduces electrical noise and contributes to more stable system behavior during navigation.
+
+---
+
+# 13. Operating Modes
+
+## Manual Mode
+
+Manual mode was designed to maximize operator control during search missions.
+
+The firefighter operates the platform remotely using a Bluetooth controller while simultaneously monitoring the underwater video feed displayed on a notebook.
+
+Available commands include:
+
+- Forward movement
+- Reverse movement
+- Left turn
+- Right turn
+- Camera elevation
+- Underwater lighting
+- Navigation mode selection
+
+Manual operation is particularly useful during detailed inspection of specific underwater regions identified by the rescue team.
+
+---
+
+## Autonomous Mode
+
+The project also proposes an autonomous navigation mode intended to assist large-area search operations.
+
+Instead of relying exclusively on operator commands, the robotic platform follows predefined navigation constraints established by infrared reference beacons positioned around the search area.
+
+When the onboard infrared sensors detect a boundary beacon, the Arduino automatically modifies the navigation trajectory, preventing the vehicle from leaving the designated operational region.
+
+Although still considered a prototype feature, preliminary experiments demonstrated the feasibility of implementing virtual operational boundaries without requiring GPS.
+
+---
+
+## Operational Workflow
+
+```text
+Mission Start
+
+↓
+
+Operator selects navigation mode
+
+↓
+
+Robot enters search area
+
+↓
+
+Camera transmits live images
+
+↓
+
+Notebook processes frames
+
+↓
+
+Person detected?
+
+├── No → Continue search
+└── Yes → Display alert to operator
+
+↓
+
+Operator investigates target
+
+↓
+
+Mission completed
+```
+
+---
+
+# 14. Validation and Field Testing
+
+## Testing Philosophy
+
+The AquaRescue platform was validated through iterative engineering cycles composed of design, implementation, testing, and refinement.
+
+Each testing session provided practical feedback that guided improvements in both hardware and software.
+
+---
+
+## Controlled Environment
+
+Initial experiments were conducted in the Olympic swimming pool of Colégio Militar do Corpo de Bombeiros do Ceará.
+
+The controlled environment allowed safe evaluation of:
+
+- Vehicle stability
+- Propulsion efficiency
+- Waterproofing
+- Camera deployment
+- Wireless communication
+- Human detection
+
+---
+
+## Open Water Validation
+
+After laboratory validation, the robotic platform was tested in natural aquatic environments at Tabuba Beach, Ceará.
+
+The selected location includes river and ocean interaction, providing more realistic operating conditions.
+
+Field tests demonstrated:
+
+- Stable floating behavior
+- Reliable propulsion
+- Good underwater visibility
+- Successful live video transmission
+- Positive person detection during underwater experiments
+
+These tests confirmed the feasibility of the proposed architecture under realistic environmental conditions.
+
+---
+
+## Engineering Validation
+
+The project successfully demonstrated:
+
+✔ Mechanical stability
+
+✔ Waterproof electronics enclosure
+
+✔ Embedded propulsion control
+
+✔ Live wireless video transmission
+
+✔ Computer vision integration
+
+✔ Modular architecture
+
+✔ Field operation capability
+
+Although conceived as a research prototype, the project proved that affordable embedded technologies can effectively support public safety applications.
+
+---
+
+# 15. Engineering Trade-offs
+
+Engineering projects frequently require balancing performance, cost, complexity, and reliability. Throughout AquaRescue's development, several technical decisions were intentionally made after evaluating these trade-offs.
+
+| Decision | Benefit | Limitation |
+|----------|---------|------------|
+| Catamaran hull | Excellent stability | Larger overall footprint |
+| Relay-based motor control | Low cost and easy replacement | Lower efficiency than H-bridge drivers |
+| External computer vision processing | Higher computational capability | Requires operator notebook |
+| ESP32-CAM streaming | Low-cost wireless imaging | Dependent on Wi-Fi quality |
+| Recycled mechanical components | Significant cost reduction | Greater effort during mechanical adaptation |
+| Differential propulsion | Simple steering without rudders | Less efficient turning at very low speeds |
+
+Documenting these engineering decisions is important because they reflect the project's design philosophy: prioritize affordability, maintainability, and practical deployment over maximum technological sophistication.
+
+
 ## Revision History
 
 | Version | Date | Description |
@@ -647,3 +881,4 @@ This modular communication architecture improves operational safety during rescu
 | v0.1 | 2026 | Initial architecture specification containing project definition, objectives, stakeholders, and engineering requirements. |
 | v0.2 | 2026 | Add architecture specification containing System Overview, Mechanical Architecture, and Propulsion System. |
 | v0.3 | 2026 | Add embedded and comunication specification and fix schedule. |
+| v0.4 | 2026 | Add engineering decisions and power system. |
