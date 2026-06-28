@@ -18,7 +18,7 @@ Robotics Club – Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
 Otávio Augusto
 
 **Document Version:**  
-v0.2
+v0.3
 
 **Document Status:**  
 In Development
@@ -374,6 +374,271 @@ The propulsion subsystem was designed to satisfy the following engineering const
 - Operational reliability;
 - Efficient battery utilization.
 
+---
+
+# 9. Embedded Control System
+
+## Design Philosophy
+
+The embedded control system was designed following a distributed architecture in which each processing unit is responsible for a well-defined subset of tasks.
+
+Instead of concentrating every function into a single microcontroller, the project separates navigation control from image acquisition and processing.
+
+This approach reduces computational load, simplifies software maintenance, and improves overall system reliability.
+
+The embedded architecture is divided into three processing layers:
+
+- Low-Level Control
+- Image Acquisition
+- High-Level Computer Vision
+
+---
+
+## Low-Level Controller
+
+The low-level controller is responsible for all real-time interactions with the robotic platform.
+
+An Arduino Uno was selected due to its robustness, simplicity, large community support, and sufficient computational capability for deterministic control tasks.
+
+Its responsibilities include:
+
+- Reading Bluetooth commands;
+- Controlling propulsion motors;
+- Operating relay modules;
+- Controlling the camera winch;
+- Managing underwater lighting;
+- Driving visual indicators;
+- Executing navigation logic.
+
+The Arduino operates independently from the computer vision subsystem, ensuring that vehicle control remains operational even if video processing is interrupted.
+
+---
+
+## Relay-Based Actuation
+
+Instead of employing dedicated H-bridge motor drivers, the propulsion system utilizes relay modules to reverse motor polarity.
+
+Although unconventional for robotic applications, this solution presented several advantages during development:
+
+- Low implementation cost;
+- Easy maintenance;
+- Electrical isolation;
+- Simple replacement;
+- Availability of components.
+
+Each relay module is controlled directly by the Arduino digital outputs.
+
+---
+
+## Embedded Responsibilities
+
+The embedded system is responsible for:
+
+| Function | Responsible Module |
+|------------|-------------------|
+| Propulsion control | Arduino Uno |
+| Camera elevation | Arduino Uno |
+| Lighting control | Arduino Uno |
+| Visual indicators | Arduino Uno |
+| Bluetooth communication | HC-05 Bluetooth Module |
+| Motor switching | Relay Modules |
+
+---
+
+## Design Considerations
+
+The embedded system prioritizes deterministic behavior over computational complexity.
+
+Image processing tasks are intentionally delegated to an external computer, allowing the Arduino to maintain stable timing for vehicle control.
+
+This architectural decision significantly reduces software complexity while improving reliability during field operations.
+
+---
+
+# 10. Computer Vision System
+
+## Overview
+
+One of AquaRescue's most innovative characteristics is the integration of computer vision techniques to assist firefighters during victim localization.
+
+Instead of requiring operators to continuously inspect video streams manually, the system automatically analyzes incoming frames and highlights potential human detections in real time.
+
+The objective is not to replace human judgment, but to reduce operator fatigue during prolonged search missions.
+
+---
+
+## System Architecture
+
+The computer vision subsystem is composed of three independent stages:
+
+1. Image Acquisition
+2. Image Processing
+3. Human Detection
+
+Each stage operates independently while exchanging information through network communication.
+
+---
+
+## Image Acquisition
+
+An ESP32-CAM module is responsible for transmitting live underwater video.
+
+The ESP32 does not execute artificial intelligence algorithms.
+
+Its exclusive responsibility is image acquisition and video streaming.
+
+The module operates as a lightweight MJPEG streaming server connected through a local Wi-Fi network.
+
+Typical streaming pipeline:
+
+Camera
+
+↓
+
+ESP32-CAM
+
+↓
+
+HTTP MJPEG Stream
+
+↓
+
+Wi-Fi Network
+
+↓
+
+Operator Computer
+
+---
+
+## Processing Layer
+
+The operator's notebook executes all computer vision algorithms.
+
+Python was selected due to its mature ecosystem for artificial intelligence and image processing.
+
+Major software components include:
+
+- Python
+- OpenCV
+- NumPy
+- cv2.dnn module
+
+This architecture allows computationally intensive algorithms to execute on hardware considerably more powerful than a microcontroller.
+
+---
+
+## Human Detection
+
+Each received frame undergoes the following processing pipeline:
+
+Frame Acquisition
+
+↓
+
+Image Decoding
+
+↓
+
+Pre-processing
+
+↓
+
+Neural Network Inference
+
+↓
+
+Bounding Box Generation
+
+↓
+
+Confidence Evaluation
+
+↓
+
+Visual Alert
+
+↓
+
+Display
+
+The implemented detection algorithm identifies human figures and overlays bounding boxes on detected individuals while presenting confidence information to the operator.
+
+---
+
+## Design Philosophy
+
+Rather than embedding artificial intelligence directly into the robotic platform, the project deliberately separates sensing from inference.
+
+This decision provides several engineering advantages:
+
+- Lower onboard power consumption;
+- Simpler embedded software;
+- Reduced hardware cost;
+- Easier model replacement;
+- Increased computational performance;
+- Future compatibility with more advanced neural networks.
+
+---
+
+# 11. Communication Architecture
+
+## Overview
+
+AquaRescue employs two independent communication channels, each optimized for a specific operational purpose.
+
+This separation increases system robustness while simplifying subsystem integration.
+
+---
+
+## Bluetooth Communication
+
+Bluetooth is responsible for command transmission between the operator and the robotic platform.
+
+Commands include:
+
+- Forward movement;
+- Reverse movement;
+- Turning;
+- Camera elevation;
+- Lighting control;
+- Navigation mode selection.
+
+The Bluetooth link connects directly to the Arduino controller.
+
+---
+
+## Wi-Fi Communication
+
+Video transmission occurs independently through a dedicated Wi-Fi connection.
+
+The ESP32-CAM operates as an MJPEG streaming server, continuously transmitting underwater video to the operator notebook.
+
+The notebook accesses the stream through a standard HTTP endpoint and processes each received frame using OpenCV.
+
+This architecture isolates navigation control from video transmission, preventing failures in one subsystem from directly affecting the other.
+
+---
+
+## Communication Summary
+
+| Communication | Purpose |
+|---------------|---------|
+| Bluetooth | Robot control |
+| Wi-Fi | Video transmission |
+| HTTP MJPEG | Image streaming |
+| USB | Software upload and maintenance |
+
+---
+
+## Engineering Rationale
+
+Separating control communication from video transmission increases fault tolerance.
+
+Even if the video stream experiences temporary degradation, the operator maintains full control over vehicle navigation through the independent Bluetooth channel.
+
+This modular communication architecture improves operational safety during rescue missions.
+
 
 ## Revision History
 
@@ -381,3 +646,4 @@ The propulsion subsystem was designed to satisfy the following engineering const
 |:--------|:----|:------------|
 | v0.1 | 2026 | Initial architecture specification containing project definition, objectives, stakeholders, and engineering requirements. |
 | v0.2 | 2026 | Add architecture specification containing System Overview, Mechanical Architecture, and Propulsion System. |
+| v0.3 | 2026 | Add embedded and comunication specification and fix schedule. |
