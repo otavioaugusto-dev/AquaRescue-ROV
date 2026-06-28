@@ -18,7 +18,7 @@ Robotics Club – Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
 Otávio Augusto
 
 **Document Version:**  
-v0.1
+v0.2
 
 **Document Status:**  
 In Development
@@ -151,10 +151,233 @@ Develop a low-cost robotic platform capable of assisting search and rescue teams
 | NFR-07 | Portable operation by a single operator |
 | NFR-08 | Stable communication during field operation |
 
+------
+
+# 6. System Overview
+
+## System Description
+
+AquaRescue is composed of multiple engineering subsystems working together to support aquatic search and rescue missions.
+
+Instead of being designed as a single robotic platform, the project follows a modular architecture where each subsystem performs a specific function while communicating with the remaining modules.
+
+This modular approach simplifies maintenance, future upgrades, fault isolation, and hardware replacement while allowing each subsystem to evolve independently.
+
+The complete system is divided into the following major subsystems:
+
+- Mechanical Structure
+- Propulsion System
+- Embedded Control System
+- Underwater Imaging System
+- Computer Vision System
+- Communication System
+- Power Distribution System
+- Human-Machine Interface
+
 ---
+
+## High-Level System Architecture
+
+> **Diagram Placeholder**
+>
+> The complete system architecture diagram will be inserted in a future revision.
+
+```text
+                 OPERATOR
+
+        Bluetooth Controller
+                │
+                │
+         ┌──────▼──────┐
+         │   Arduino   │
+         └──────┬──────┘
+                │
+      ┌─────────┴──────────┐
+      │                    │
+ Left Motor           Right Motor
+      │                    │
+      └─────────┬──────────┘
+                │
+          Catamaran Hull
+                │
+       Underwater Camera
+                │
+          ESP32 Streaming
+                │
+             Wi-Fi Network
+                │
+        Operator Notebook
+                │
+      Python + OpenCV + AI
+                │
+      Person Detection Alert
+```
+
+---
+
+# 7. Mechanical Architecture
+
+## Mechanical Design Philosophy
+
+The mechanical structure was designed following three primary engineering principles:
+
+- High buoyancy;
+- Mechanical simplicity;
+- Low manufacturing cost.
+
+To achieve these objectives, the development team adopted a catamaran configuration composed of two PVC floating hulls connected by an anodized aluminum frame.
+
+This configuration provides excellent lateral stability while creating sufficient internal space for propulsion components and electronic systems.
+
+---
+
+## Floating Structure
+
+The floating platform consists of:
+
+- Two 100 mm PVC pipes acting as flotation pontoons;
+- An anodized aluminum structural frame;
+- A sealed acrylic enclosure positioned between the pontoons;
+- Reinforced mechanical supports for propulsion motors;
+- Centralized weight distribution.
+
+PVC was selected due to its:
+
+- Low cost;
+- High corrosion resistance;
+- Excellent buoyancy;
+- Ease of machining;
+- Wide commercial availability.
+
+Most structural components were obtained from recycled construction materials, reducing manufacturing costs while promoting sustainable engineering practices.
+
+---
+
+## Waterproof Enclosure
+
+A central 11-liter acrylic enclosure houses the embedded electronics.
+
+The enclosure protects:
+
+- Arduino controller;
+- Relay modules;
+- Battery pack;
+- Voltage regulators;
+- Internal wiring;
+- Camera winch mechanism.
+
+Waterproof sealing was achieved using PU40 polyurethane sealant, providing protection against water ingress during field operation.
+
+---
+
+## Camera Deployment Mechanism
+
+Instead of fixing the underwater camera directly below the platform, the project employs a motorized winch mechanism.
+
+The system consists of:
+
+- Automotive window motor (12 V);
+- Cable spool;
+- Camera support cable;
+- Relay-controlled actuation.
+
+This mechanism allows the operator to adjust camera depth according to water conditions, improving visibility while reducing image disturbances caused by surface turbulence.
+
+---
+
+## Mechanical Advantages
+
+The selected mechanical architecture provides several operational benefits:
+
+- High stability;
+- Low center of gravity;
+- Easy transportation;
+- Modular maintenance;
+- Simple assembly;
+- Low production cost;
+- Scalability for future upgrades.
+
+---
+
+# 8. Propulsion System
+
+## Differential Drive Configuration
+
+The propulsion system adopts a differential drive configuration composed of two independent DC motors positioned near the rear section of each floating pontoon.
+
+This configuration allows movement without requiring rudders or steering mechanisms.
+
+Vehicle motion is obtained by varying the rotational direction and speed of each propulsion motor.
+
+Examples include:
+
+| Left Motor | Right Motor | Movement |
+|------------|-------------|----------|
+| Forward | Forward | Forward |
+| Reverse | Reverse | Backward |
+| Forward | Reverse | Rotate Right |
+| Reverse | Forward | Rotate Left |
+| Stop | Forward | Smooth Left Turn |
+| Forward | Stop | Smooth Right Turn |
+
+---
+
+## Propulsion Motors
+
+The propulsion system employs:
+
+- Two 12 V DC motors;
+- High torque;
+- High rotational speed;
+- Gear-assisted mechanical transmission.
+
+Mechanical components were recovered from discarded printers, reducing manufacturing costs while maintaining acceptable mechanical reliability.
+
+---
+
+## Propeller Design
+
+Rather than using commercial marine propellers, the project reused four-blade propellers recovered from microwave oven cooling systems.
+
+Engineering considerations included:
+
+- Increased thrust at low RPM;
+- Higher propulsion efficiency;
+- Reduced battery consumption;
+- Lower mechanical stress on transmission components.
+
+Additional gears and bearings were incorporated to reduce shaft loading and improve long-term durability.
+
+---
+
+## Mechanical Transmission
+
+The propulsion assembly includes:
+
+- Bearings;
+- Gear reduction;
+- Motor couplings;
+- Reinforced supports.
+
+This mechanical arrangement minimizes vibration while improving energy transfer from the motors to the propellers.
+
+---
+
+## Design Considerations
+
+The propulsion subsystem was designed to satisfy the following engineering constraints:
+
+- Low manufacturing cost;
+- Easy maintenance;
+- Component availability;
+- Mechanical robustness;
+- Operational reliability;
+- Efficient battery utilization.
+
 
 ## Revision History
 
 | Version | Date | Description |
 |:--------|:----|:------------|
 | v0.1 | 2026 | Initial architecture specification containing project definition, objectives, stakeholders, and engineering requirements. |
+| v0.2 | 2026 | Add architecture specification containing System Overview, Mechanical Architecture, and Propulsion System. |
