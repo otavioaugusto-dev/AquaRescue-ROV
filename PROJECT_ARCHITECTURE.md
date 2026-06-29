@@ -3,7 +3,7 @@
 
 ---
 
-**Project Name:** AquaRescue – Embedded Robotic Platform for Recognition and Localization of Drowning Victims
+**Project Name:** "Embarcação Robótica de Reconhecimento e Localização de Vítimas de Afogamento"
 
 **Repository:**  
 https://github.com/otavioaugusto-dev/AquaRescue-ROV
@@ -18,7 +18,7 @@ Robotics Club – Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
 Otávio Augusto
 
 **Document Version:**  
-v0.4
+v1.0
 
 **Document Status:**  
 In Development
@@ -32,19 +32,22 @@ In Development
 3. Project Objectives
 4. Stakeholders
 5. Engineering Requirements
-6. System Overview *(Coming in v0.2)*
-7. Mechanical Architecture *(Coming in v0.2)*
-8. Electrical Architecture *(Coming in v0.2)*
-9. Embedded System *(Coming in v0.3)*
-10. Computer Vision System *(Coming in v0.3)*
-11. Communication Architecture *(Coming in v0.3)*
-12. Power Distribution *(Coming in v0.3)*
-13. Operating Modes *(Coming in v0.4)*
-14. Validation and Field Testing *(Coming in v0.4)*
-15. Scientific Contributions *(Coming in v0.4)*
-16. Awards *(Coming in v0.4)*
-17. Lessons Learned *(Coming in v1.0)*
-18. Future Improvements *(Coming in v1.0)*
+6. System Overview 
+7. Mechanical Architecture 
+8. Electrical Architecture 
+9. Embedded System 
+10. Computer Vision System 
+11. Communication Architecture 
+12. Power Distribution 
+13. Operating Modes 
+14. Validation and Field Testing 
+15. Engineering Trade-offs
+16. Project Limitations
+17. Awards and Recognition
+18. Lessons Learned
+19. Future Improvements
+Appendix A — Acronyms
+Appendix B — Revision History
 
 ---
 
@@ -178,40 +181,7 @@ The complete system is divided into the following major subsystems:
 
 ## High-Level System Architecture
 
-> **Diagram Placeholder**
->
-> The complete system architecture diagram will be inserted in a future revision.
-
-```text
-                 OPERATOR
-
-        Bluetooth Controller
-                │
-                │
-         ┌──────▼──────┐
-         │   Arduino   │
-         └──────┬──────┘
-                │
-      ┌─────────┴──────────┐
-      │                    │
- Left Motor           Right Motor
-      │                    │
-      └─────────┬──────────┘
-                │
-          Catamaran Hull
-                │
-       Underwater Camera
-                │
-          ESP32 Streaming
-                │
-             Wi-Fi Network
-                │
-        Operator Notebook
-                │
-      Python + OpenCV + AI
-                │
-      Person Detection Alert
-```
+> See **Diagram D-04 — Communication Architecture** in `diagrams/README.md`.
 
 ---
 
@@ -491,24 +461,7 @@ The module operates as a lightweight MJPEG streaming server connected through a 
 
 Typical streaming pipeline:
 
-Camera
-
-↓
-
-ESP32-CAM
-
-↓
-
-HTTP MJPEG Stream
-
-↓
-
-Wi-Fi Network
-
-↓
-
-Operator Computer
-
+See **Diagram D-01 — High-Level System Architecture** in `diagrams/README.md`.
 ---
 
 ## Processing Layer
@@ -675,25 +628,7 @@ Using two independent battery packs allows uninterrupted field operation by repl
 
 The battery pack supplies power to different subsystems according to their electrical requirements.
 
-```text
-          Li-Ion Battery Pack
-                  │
-        ┌─────────┴─────────┐
-        │                   │
-   DC Motors          Voltage Regulator
-                            │
-        ┌───────────────────┴───────────────────┐
-        │                                       │
-    Arduino UNO                           ESP32-CAM
-        │                                       │
- Relay Modules                          Wireless Streaming
-        │
- Lighting
-        │
- Camera Winch
-```
-
-Future versions of this document will include the complete electrical schematic.
+See **Diagram D-03 — Electrical Architecture** in `diagrams/README.md`.
 
 ---
 
@@ -756,41 +691,7 @@ Although still considered a prototype feature, preliminary experiments demonstra
 
 ## Operational Workflow
 
-```text
-Mission Start
-
-↓
-
-Operator selects navigation mode
-
-↓
-
-Robot enters search area
-
-↓
-
-Camera transmits live images
-
-↓
-
-Notebook processes frames
-
-↓
-
-Person detected?
-
-├── No → Continue search
-└── Yes → Display alert to operator
-
-↓
-
-Operator investigates target
-
-↓
-
-Mission completed
-```
-
+See **Diagram D-07 — Mission Workflow** in `diagrams/README.md`.
 ---
 
 # 14. Validation and Field Testing
@@ -873,6 +774,154 @@ Engineering projects frequently require balancing performance, cost, complexity,
 
 Documenting these engineering decisions is important because they reflect the project's design philosophy: prioritize affordability, maintainability, and practical deployment over maximum technological sophistication.
 
+---
+
+# 16. Project Limitations
+
+## Overview
+
+As a research and educational prototype, AquaRescue was designed to demonstrate the feasibility of applying embedded systems, computer vision, and low-cost robotics to aquatic search and rescue operations.
+
+Although the platform achieved its primary objectives, several technical limitations were identified throughout development.
+
+Understanding these limitations is essential for guiding future improvements and evaluating the project's current operational scope.
+
+---
+
+## Current Limitations
+
+| Area | Current Limitation |
+|-------|-------------------|
+| Computer Vision | Detection performance depends on water visibility and lighting conditions. |
+| Positioning | The platform does not incorporate GPS or underwater localization systems. |
+| Communication | Video transmission quality depends on Wi-Fi signal availability. |
+| Processing | Artificial intelligence algorithms execute on an external notebook rather than onboard hardware. |
+| Navigation | Autonomous navigation is limited to infrared boundary detection. |
+| Waterproofing | Designed for shallow-water operation and controlled environments. |
+
+---
+
+## Engineering Perspective
+
+The identified limitations reflect conscious engineering decisions made to prioritize affordability, modularity, and rapid prototyping.
+
+Rather than maximizing technological complexity, the project focused on demonstrating a functional and accessible solution capable of supporting rescue professionals while remaining feasible within educational and financial constraints.
+
+---
+
+# 17. Awards and Recognition
+
+## Scientific Exhibitions
+
+Throughout its development, AquaRescue was presented at several scientific and technological events, where it received recognition for its engineering innovation and social impact.
+
+### Ceará Faz Ciência 2023
+
+The project was selected for presentation during Ceará Faz Ciência, one of the state's largest science and technology exhibitions.
+
+This event provided an opportunity to demonstrate the platform to researchers, students, educators, and public institutions.
+
+---
+
+### Mostra Nacional de Robótica (MNR) 2023
+
+AquaRescue was presented at the Brazilian National Robotics Exhibition (MNR), held in Salvador, Bahia.
+
+The project received positive evaluations regarding its multidisciplinary integration of embedded systems, robotics, artificial intelligence, and public safety applications.
+
+---
+
+### FEBRACE 2024
+
+The project represented Colégio Militar do Corpo de Bombeiros do Ceará at the Brazilian Science and Engineering Fair (FEBRACE), hosted by the University of São Paulo (USP).
+
+Among hundreds of projects from across Brazil, AquaRescue achieved:
+
+**4th Place Overall — Engineering Category**
+
+This recognition validated both the technical quality of the project and its potential social contribution.
+
+---
+
+## Practical Validation
+
+Beyond scientific exhibitions, AquaRescue was evaluated during practical demonstrations involving firefighters from:
+
+- Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
+- Corpo de Bombeiros Militar do Ceará (CBMCE)
+- Search and Rescue Battalion (BBS)
+
+Field demonstrations confirmed the feasibility of applying low-cost embedded technologies to aquatic search operations.
+
+---
+
+# 18. Lessons Learned
+
+The development of AquaRescue provided valuable engineering experience extending beyond robotics itself.
+
+Major lessons learned include:
+
+- Complex engineering problems require multidisciplinary thinking.
+- Mechanical design directly influences electronic reliability.
+- Early prototyping accelerates technical validation.
+- Field testing reveals issues not observable in laboratory environments.
+- Modular architectures simplify maintenance and future upgrades.
+- Documentation is as important as implementation for long-term project sustainability.
+
+The project also reinforced the importance of collaboration between engineering and public safety professionals during the development of technological solutions for real-world applications.
+
+---
+
+# 19. Future Improvements
+
+Although AquaRescue successfully demonstrated the proposed concept, several improvements have been identified for future versions.
+
+Potential developments include:
+
+- Integration of autonomous navigation using GPS and waypoint planning.
+- Deployment of onboard artificial intelligence accelerators.
+- Real-time telemetry dashboard.
+- Improved underwater communication systems.
+- Sonar integration for low-visibility environments.
+- Object tracking algorithms.
+- Battery management system (BMS) with real-time monitoring.
+- Waterproof industrial enclosure.
+- Brushless propulsion motors.
+- Mobile application for remote mission monitoring.
+
+These improvements aim to increase operational capability while preserving the project's original philosophy of affordability and modularity.
+
+---
+
+# Appendix A — Acronyms
+
+| Acronym | Description |
+|----------|-------------|
+| AI | Artificial Intelligence |
+| BBS | Search and Rescue Battalion |
+| CBMCE | Corpo de Bombeiros Militar do Ceará |
+| CPS | Cyber-Physical System |
+| ESP32 | Espressif ESP32 Microcontroller |
+| HMI | Human-Machine Interface |
+| HTTP | Hypertext Transfer Protocol |
+| IoT | Internet of Things |
+| MJPEG | Motion JPEG |
+| OpenCV | Open Source Computer Vision Library |
+| ROV | Remotely Operated Vehicle |
+| Wi-Fi | Wireless Local Area Network |
+
+---
+
+# Appendix B — Revision History
+
+| Version | Description |
+|----------|-------------|
+| v0.1 | Initial repository structure |
+| v0.2 | Mechanical and system architecture |
+| v0.3 | Embedded systems and communication architecture |
+| v0.4 | Power distribution, validation and engineering trade-offs |
+| v1.0 | Final technical documentation with diagrams and appendices |
+
 
 ## Revision History
 
@@ -882,3 +931,4 @@ Documenting these engineering decisions is important because they reflect the pr
 | v0.2 | 2026 | Add architecture specification containing System Overview, Mechanical Architecture, and Propulsion System. |
 | v0.3 | 2026 | Add embedded and comunication specification and fix schedule. |
 | v0.4 | 2026 | Add engineering decisions and power system. |
+| v1.0 | 2026 | Finalize documentation. |
