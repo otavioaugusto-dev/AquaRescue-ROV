@@ -749,3 +749,73 @@ Among the most important lessons were:
 These lessons continue to influence subsequent engineering projects developed by the team.
 
 ---
+
+# Future Improvements
+
+Although AquaRescue successfully validated the proposed architecture, several engineering opportunities remain for future development.
+
+Potential improvements include:
+
+- Autonomous navigation using GPS and waypoint planning
+- Integration with sonar sensors for underwater obstacle detection
+- Deep learning-based victim detection (YOLOv8)
+- Thermal imaging integration
+- Long-range telemetry using LoRa
+- Improved waterproof housing for deeper operation
+- Brushless propulsion system
+- Autonomous search algorithms
+- Battery management system (BMS)
+- Mission logging and telemetry recording
+- Web-based monitoring dashboard
+- Mobile application for field operation
+
+These improvements could transform AquaRescue from a research prototype into a more capable operational platform for aquatic search support.
+
+---
+
+# Repository Documentation
+
+This repository is organized to preserve both the engineering process and the technical implementation of AquaRescue.
+
+| Document | Description |
+|-----------|-------------|
+| `README.md` | Project overview and engineering summary |
+| `PROJECT_ARCHITECTURE.md` | Complete engineering documentation |
+| `diagrams/README.md` | System diagrams and Mermaid sources |
+| `computer-vision/` | Computer vision implementation |
+| `firmware/` | Embedded software |
+| `hardware/` | Hardware documentation |
+| `docs/` | Supporting documentation |
+| `images/` | Project photographs and media |
+
+The repository is intended to serve as both technical documentation and an educational reference for multidisciplinary robotics projects.
+
+---
+
+# Citation
+
+If you use AquaRescue as inspiration for research, education, or engineering projects, please consider citing this repository.
+
+```text
+Otávio Augusto Souza Abreu et al.
+
+AquaRescue ROV:
+Low-Cost Cyber-Physical Search and Rescue Platform
+
+GitHub Repository
+https://github.com/otavioaugusto-dev/AquaRescue-ROV
+```
+
+---
+
+# Reproducibility
+
+AquaRescue was developed as an educational research project.
+
+Some hardware components, firmware revisions, and prototype iterations are no longer available due to the project's long development cycle.
+
+Nevertheless, this repository preserves the engineering architecture, development methodology, computer vision implementation, documentation, and project evolution, allowing future researchers and students to understand, reproduce, and further improve the proposed concepts.
+
+Rather than serving solely as source code storage, this repository documents the complete engineering lifecycle of the project.
+
+---
