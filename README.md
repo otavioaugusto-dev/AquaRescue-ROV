@@ -61,16 +61,16 @@ These challenges motivated the development of AquaRescue, a low-cost robotic pla
 
 # Project Highlights
 
-- 🚒 Designed for fire department search operations
-- 🤖 Low-cost remotely operated robotic platform (ROV)
-- 🧠 OpenCV-based computer vision for person detection
-- 📡 Real-time wireless video transmission using ESP32-CAM
-- ⚙ Arduino-based embedded control architecture
-- 🚤 Differential propulsion catamaran platform
-- 💡 Modular underwater lighting system
-- 🏆 4th Place Overall — Engineering Category — FEBRACE 2024
-- 🧪 Validated through laboratory and real-world aquatic tests
-- 📄 Scientific research project presented at national exhibitions
+-  Designed for fire department search operations
+-  Low-cost remotely operated robotic platform (ROV)
+-  OpenCV-based computer vision for person detection
+-  Real-time wireless video transmission using ESP32-CAM
+-  Arduino-based embedded control architecture
+-  Differential propulsion catamaran platform
+-  Modular underwater lighting system
+-  4th Place Overall — Engineering Category — FEBRACE 2024
+-  Validated through laboratory and real-world aquatic tests
+-  Scientific research project presented at national exhibitions
 
 ---
 
@@ -446,7 +446,7 @@ AquaRescue represented **Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
 
 The project was selected among hundreds of research projects from all regions of Brazil and achieved:
 
-> 🏆 **4th Place Overall — Engineering Category**
+>  **4th Place Overall — Engineering Category**
 
 The award ceremony was presented by **Iberê Thenório** and **Mari Fulfaro**, creators of the science communication channel **Manual do Mundo**, during the official closing ceremony of FEBRACE.
 
