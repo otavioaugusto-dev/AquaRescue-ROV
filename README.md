@@ -819,3 +819,71 @@ Nevertheless, this repository preserves the engineering architecture, developmen
 Rather than serving solely as source code storage, this repository documents the complete engineering lifecycle of the project.
 
 ---
+
+# Acknowledgements
+
+AquaRescue benefited from the support, guidance, and collaboration of several institutions and professionals throughout its conception, development, validation, and scientific dissemination.
+
+Special thanks are extended to:
+
+- **Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)** for providing the academic environment, laboratory resources, and institutional support that enabled the development of this project.
+
+- **Corpo de Bombeiros Militar do Ceará (CBMCE)** and the **Search and Rescue Battalion (BBS)** for sharing operational knowledge, evaluating the proposed solution, and contributing valuable technical feedback during field demonstrations.
+
+- **FEBRACE – Brazilian Science and Engineering Fair**, hosted by the **University of São Paulo (USP)**, for recognizing the project nationally and promoting scientific exchange among students, researchers, and engineering professionals.
+
+- **Mostra Nacional de Robótica (MNR)** for fostering robotics research and providing the opportunity to present the project to the Brazilian robotics community in Salvador, Bahia.
+
+- **Ceará Faz Ciência** for encouraging scientific dissemination and technological innovation in the state of Ceará.
+
+- **UniAteneu** for providing an additional opportunity to publicly demonstrate the project and discuss its engineering concepts with the academic community.
+
+Sincere appreciation is also extended to every firefighter, professor, researcher, evaluator, student, and visitor whose questions, suggestions, and technical discussions contributed to the continuous improvement of AquaRescue.
+
+Their support helped transform an initial concept into an award-winning multidisciplinary engineering research project.
+
+---
+
+# About This Repository
+
+This repository was created to preserve not only the source code of AquaRescue, but also the complete engineering process behind its development.
+
+Rather than serving solely as a software repository, it documents the project's architecture, design decisions, experimental validation, scientific dissemination, and engineering methodology.
+
+The objective is to provide an educational and technical reference for students, researchers, and engineers interested in embedded robotics, cyber-physical systems, computer vision, and socially impactful technology.
+
+Every document, diagram, photograph, and source file included in this repository represents part of the engineering journey that transformed an initial idea into a nationally recognized research project.
+
+---
+
+# Engineering Philosophy
+
+Engineering is not merely the process of building machines.
+
+It is the discipline of understanding real problems, making responsible technical decisions, validating ideas through experimentation, and continuously improving solutions capable of creating a positive impact on society.
+
+AquaRescue reflects this philosophy.
+
+Developed from affordable components, scientific curiosity, and a commitment to continuous learning, the project demonstrates that meaningful engineering is defined not by the cost of its materials, but by the quality of its ideas, the rigor of its methodology, and the willingness to solve problems that truly matter.
+
+---
+
+# Final Remarks
+
+Although AquaRescue was developed as a research prototype, the knowledge acquired throughout its conception, implementation, validation, and scientific dissemination continues to inspire new engineering projects.
+
+It is hoped that this repository encourages other students and researchers to investigate real-world challenges, embrace multidisciplinary collaboration, and develop technologies capable of generating positive social impact.
+
+If AquaRescue inspires even one future engineer to apply knowledge in service of society, then one of its greatest objectives will already have been achieved.
+
+---
+
+<div align="center">
+
+### Built with curiosity, engineering, and purpose.
+
+**AquaRescue ROV**
+
+*2023 — 2025*
+
+</div>
