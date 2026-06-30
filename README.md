@@ -90,3 +90,64 @@ These challenges motivated the development of AquaRescue, a low-cost robotic pla
 | Current Status | Completed Research Prototype |
 
 ---
+
+# How AquaRescue Works
+
+AquaRescue was designed to support firefighters during aquatic search operations by combining real-time teleoperation with computer vision assistance.
+
+Instead of replacing rescue professionals, the platform acts as an intelligent support tool, providing underwater visibility and automatic person detection while keeping operators safely outside the water whenever possible.
+
+The operational workflow is summarized below:
+
+1. **Remote Deployment**  
+   The operator places the AquaRescue platform in the search area and establishes wireless communication with the vehicle.
+
+2. **Navigation**  
+   Using a Bluetooth controller, the operator remotely navigates the catamaran through the search region. In autonomous mode, infrared boundary sensors can keep the vehicle inside a predefined operating area.
+
+3. **Underwater Inspection**  
+   A motorized winch lowers the waterproof camera into the water, allowing inspection below the surface without exposing rescue personnel to unnecessary risks.
+
+4. **Real-Time Video Transmission**  
+   The ESP32-CAM continuously streams live underwater video over a Wi-Fi network to the operator's notebook.
+
+5. **Computer Vision Processing**  
+   The notebook receives each video frame and processes it using Python and OpenCV-based algorithms capable of detecting people in real time.
+
+6. **Operator Assistance**  
+   Whenever a potential victim is detected, the software highlights the detected region and notifies the operator, improving situational awareness during the search mission.
+
+---
+
+# Engineering Highlights
+
+Unlike many educational robotics projects that focus on isolated technologies, AquaRescue integrates multiple engineering disciplines into a single cyber-physical platform.
+
+The project combines:
+
+- Mechanical Engineering (catamaran structure, propulsion and flotation)
+- Embedded Systems (Arduino-based control architecture)
+- Computer Vision (real-time person detection using OpenCV)
+- Wireless Communication (Bluetooth and Wi-Fi)
+- Power Electronics (regulated multi-voltage power distribution)
+- Human–Machine Interface (remote operation and monitoring)
+
+This multidisciplinary approach allowed the development of a functional research prototype capable of addressing a real public safety challenge while remaining affordable and reproducible for educational institutions.
+
+---
+
+# Design Philosophy
+
+During the development process, several engineering decisions prioritized simplicity, robustness, and maintainability over unnecessary complexity.
+
+The platform was designed according to the following principles:
+
+- **Low Cost** — prioritize affordable and widely available components.
+- **Modularity** — allow independent maintenance and future subsystem upgrades.
+- **Reliability** — reduce the number of failure points during field operation.
+- **Accessibility** — enable replication by educational institutions and robotics teams.
+- **Real-World Validation** — validate the platform through practical demonstrations rather than simulations alone.
+
+These principles guided every stage of the project, from the initial concept to the final prototype presented at national scientific exhibitions.
+
+---
