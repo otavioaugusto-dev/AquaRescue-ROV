@@ -553,3 +553,84 @@ Although originally conceived as an educational research initiative, AquaRescue 
 Beyond developing a functional robotic platform, the project demonstrated how affordable engineering solutions can contribute to public safety while promoting robotics education, scientific research, and technological innovation.
 
 Its greatest contribution, however, lies in showing that low-cost cyber-physical systems can be designed, validated, and communicated following rigorous engineering principles.
+
+---
+
+# Technical Specifications
+
+The following table summarizes the main engineering characteristics of the AquaRescue platform.
+
+| Category | Specification |
+|------------|-------------------------------|
+| Project Name | AquaRescue ROV |
+| Development Period | 2023 – 2025 |
+| Project Type | Research Prototype |
+| Application | Aquatic Search and Rescue |
+| Architecture | Cyber-Physical System (CPS) |
+| Platform | Catamaran |
+| Navigation | Remote Operated Vehicle (ROV) |
+| Primary Controller | Arduino Uno |
+| Vision System | ESP32-CAM |
+| Computer Vision | Python + OpenCV |
+| Wireless Communication | Bluetooth + Wi-Fi |
+| Camera Deployment | Motorized Winch |
+| Propulsion | Dual 12V DC Motors |
+| Hull Material | PVC + Aluminum |
+| Waterproof Enclosure | Acrylic (11 L) |
+| Battery System | Dual 3S10P Li-Ion (18650) Packs |
+| Voltage Regulation | DC Regulators |
+| Lighting | High-Power LEDs |
+| Operator Interface | Notebook + Bluetooth Controller |
+| Operating Modes | Manual / Semi-Autonomous |
+| Validation | Laboratory and Field Tests |
+| Scientific Publication | Yes |
+| National Awards | Yes |
+
+---
+
+# Technology Stack
+
+AquaRescue integrates multiple engineering disciplines into a single embedded robotic platform.
+
+| Area | Technologies |
+|------|--------------|
+| Embedded Systems | Arduino Uno |
+| Computer Vision | Python, OpenCV |
+| Wireless Communication | Bluetooth, Wi-Fi |
+| Electronics | Relays, Voltage Regulators, DC Motors |
+| Mechanical Engineering | Catamaran Structure, Aluminum Chassis, PVC Floats |
+| Power Systems | Li-Ion Battery Packs |
+| Manufacturing | CAD, Mechanical Assembly, Waterproof Sealing |
+| Research | Scientific Methodology, Experimental Validation |
+
+---
+
+# Repository Structure
+
+```text
+AquaRescue-ROV/
+│
+├── computer-vision/
+│   ├── detect_people/
+│   └── EUTIME/
+│
+├── diagrams/
+│
+├── docs/
+│
+├── firmware/
+│
+├── hardware/
+│
+├── images/
+│
+├── PROJECT_ARCHITECTURE.md
+│
+├── LICENSE
+│
+└── README.md
+```
+
+The repository is organized to separate hardware, software, engineering documentation, diagrams, and research assets, facilitating reproducibility and future maintenance.
+
+---
