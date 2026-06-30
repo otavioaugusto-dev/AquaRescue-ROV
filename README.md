@@ -431,3 +431,125 @@ Although AquaRescue was developed as a research prototype, interactions with exp
 The validation campaign demonstrated that the proposed low-cost architecture is technically feasible and capable of supporting future research aimed at robotic assistance during aquatic search operations.
 
 ---
+
+# Scientific Recognition
+
+The technical quality and social impact of AquaRescue were recognized through presentations at some of Brazil's most important science and engineering events.
+
+Throughout its development, the project was evaluated by researchers, professors, engineers, firefighters, and science fair judges, receiving valuable technical feedback and national recognition.
+
+---
+
+## FEBRACE 2024 — University of São Paulo (USP)
+
+AquaRescue represented **Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)** at the **22nd Brazilian Science and Engineering Fair (FEBRACE 2024)**, hosted by the **University of São Paulo (USP)**.
+
+The project was selected among hundreds of research projects from all regions of Brazil and achieved:
+
+> 🏆 **4th Place Overall — Engineering Category**
+
+The award ceremony was presented by **Iberê Thenório** and **Mari Fulfaro**, creators of the science communication channel **Manual do Mundo**, during the official closing ceremony of FEBRACE.
+
+Beyond the award itself, the event enabled technical discussions with university professors, researchers, engineers, and innovation specialists from across the country.
+
+<p align="center">
+    <img src="images/competitions/febrace_exhibition.jpg" width="48%">
+    <img src="images/competitions/febrace_assessment.jpg" width="48%">
+</p>
+
+<br>
+
+<p align="center">
+    <img src="images/competitions/febrace_interview.jpg" width="48%">
+    <img src="images/competitions/febrace_awards.jpg" width="48%">
+</p>
+
+---
+
+## Mostra Nacional de Robótica (MNR 2023)
+
+Before competing at FEBRACE, AquaRescue was selected for presentation at the **Mostra Nacional de Robótica (MNR 2023)**, held in **Salvador, Bahia**.
+
+The event brought together robotics teams from all over Brazil, providing an opportunity to exchange technical experiences in embedded systems, autonomous robotics, and engineering education.
+
+<p align="center">
+    <img src="images/competitions/mnr_banner.jpg" width="75%">
+</p>
+
+---
+
+## Ceará Faz Ciência
+
+The project was also exhibited during **Ceará Faz Ciência**, one of the state's largest science outreach events.
+
+The exhibition promoted interaction with students, educators, researchers, and visitors interested in technological innovation and scientific education.
+
+<p align="center">
+    <img src="images/competitions/cfc_exhibition.jpg" width="48%">
+    <img src="images/competitions/cfc_banner.jpg" width="48%">
+</p>
+
+---
+
+## UniAteneu Technology Exhibition
+
+AquaRescue was demonstrated during a technology exhibition hosted by **UniAteneu**, where visitors could closely inspect the robotic platform and discuss its engineering concepts with the development team.
+
+<p align="center">
+    <img src="images/competitions/exhibition_uniateneu.jpg" width="48%">
+    <img src="images/competitions/otavio_uniateneu_exhibition.jpg" width="48%">
+</p>
+
+---
+
+## Scientific Publication
+
+The engineering methodology and experimental validation of AquaRescue resulted in a scientific publication accepted for publication in the **Enciclopédia Biosfera** scientific journal.
+
+The article documents the complete development process, including:
+
+- Mechanical Design
+- Embedded Systems
+- Computer Vision
+- Wireless Communication
+- Experimental Validation
+- Applications for Public Safety
+
+This publication contributes to the dissemination of affordable robotic technologies for aquatic search and rescue applications.
+
+---
+
+## Certificates and Academic Recognition
+
+The project also received official academic recognition through certificates issued during FEBRACE and related scientific activities.
+
+These include:
+
+- FEBRACE participation certificate
+- Engineering award certificate
+- Scientific publication acceptance certificate
+- Official event credentials
+
+<p align="center">
+    <img src="images/competitions/febrace_certificates.jpg" width="70%">
+</p>
+
+---
+
+## Media Coverage
+
+The project was also featured in interviews and science communication activities during national events, helping disseminate engineering and robotics to a broader audience.
+
+<p align="center">
+    <img src="images/competitions/national_interview_redeglobo.jpg" width="70%">
+</p>
+
+---
+
+# Project Impact
+
+Although originally conceived as an educational research initiative, AquaRescue evolved into a multidisciplinary engineering project with technical validation, scientific dissemination, and national recognition.
+
+Beyond developing a functional robotic platform, the project demonstrated how affordable engineering solutions can contribute to public safety while promoting robotics education, scientific research, and technological innovation.
+
+Its greatest contribution, however, lies in showing that low-cost cyber-physical systems can be designed, validated, and communicated following rigorous engineering principles.
