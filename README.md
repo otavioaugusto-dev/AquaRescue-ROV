@@ -634,3 +634,118 @@ AquaRescue-ROV/
 The repository is organized to separate hardware, software, engineering documentation, diagrams, and research assets, facilitating reproducibility and future maintenance.
 
 ---
+
+# Engineering Contributions
+
+AquaRescue required the integration of multiple engineering disciplines throughout its conception, development, validation, and scientific dissemination.
+
+The project was not limited to software development or electronics assembly. Instead, it involved the complete engineering lifecycle of an embedded robotic system.
+
+---
+
+## Mechanical Engineering
+
+- Catamaran hull design
+- Flotation analysis
+- Structural development
+- Waterproof enclosure integration
+- Underwater camera deployment mechanism
+- Differential propulsion system
+- Mechanical assembly and field maintenance
+
+---
+
+## Embedded Systems
+
+- Arduino-based control architecture
+- Embedded firmware development
+- Bluetooth remote control
+- Motor control
+- Lighting control
+- Winch control
+- System integration
+
+---
+
+## Computer Vision
+
+- ESP32-CAM video streaming
+- Python image processing
+- OpenCV integration
+- Real-time person detection
+- Operator visual assistance
+
+---
+
+## Electronics
+
+- Power distribution
+- Voltage regulation
+- Relay-based motor control
+- Battery management
+- Wiring and electrical integration
+- Waterproof electrical installation
+
+---
+
+## Systems Engineering
+
+- Requirements definition
+- System architecture
+- Hardware/software integration
+- Prototype iteration
+- Experimental validation
+- Technical documentation
+
+---
+
+## Scientific Research
+
+- Problem investigation
+- Literature review
+- Engineering methodology
+- Experimental design
+- Scientific writing
+- Technical presentations
+- Research dissemination
+
+---
+
+# Engineering Skills Demonstrated
+
+The development of AquaRescue involved practical experience in:
+
+| Engineering Area | Applied |
+|------------------|:-------:|
+| Mechanical Design | ✅ |
+| Embedded Programming | ✅ |
+| Electronics | ✅ |
+| Computer Vision | ✅ |
+| Robotics | ✅ |
+| Internet of Things | ✅ |
+| Systems Integration | ✅ |
+| Scientific Research | ✅ |
+| Technical Writing | ✅ |
+| Public Speaking | ✅ |
+| Experimental Validation | ✅ |
+| Engineering Documentation | ✅ |
+
+---
+
+# Lessons Learned
+
+The development of AquaRescue reinforced several engineering principles that extend beyond this specific project.
+
+Among the most important lessons were:
+
+- Engineering is fundamentally iterative.
+- Early prototyping reduces development risks.
+- Simplicity often leads to more reliable systems.
+- Modular architectures facilitate maintenance and upgrades.
+- Real-world testing reveals challenges that simulations cannot predict.
+- Multidisciplinary collaboration significantly improves project quality.
+- Technical communication is as important as technical implementation.
+
+These lessons continue to influence subsequent engineering projects developed by the team.
+
+---
