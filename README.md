@@ -319,3 +319,115 @@ Every engineering decision followed five fundamental principles:
 These principles allowed AquaRescue to evolve into a robust research prototype while remaining accessible for educational institutions and future research initiatives.
 
 ---
+
+# Validation & Field Testing
+
+Engineering projects only become meaningful when validated under conditions that resemble their intended application.
+
+Throughout its development, AquaRescue underwent multiple stages of experimental validation to evaluate mechanical stability, propulsion, wireless communication, computer vision performance, and overall operational feasibility.
+
+Rather than limiting evaluation to laboratory conditions, the platform was tested in real aquatic environments with the participation of firefighters and instructors.
+
+---
+
+## Laboratory Validation
+
+The first validation phase focused on individual subsystem integration.
+
+The following aspects were progressively tested:
+
+- Mechanical assembly
+- Waterproof enclosure sealing
+- Differential propulsion control
+- RF/Bluetooth communication
+- LED lighting system
+- Camera deployment mechanism
+- Embedded electronics integration
+- Battery autonomy
+
+Each subsystem was validated independently before being incorporated into the complete platform.
+
+---
+
+## Pool Testing
+
+The first operational tests were conducted in the swimming pool of Colégio Militar do Corpo de Bombeiros do Ceará.
+
+These experiments allowed evaluation of:
+
+- Buoyancy
+- Stability
+- Maneuverability
+- Turning radius
+- Camera deployment
+- Wireless communication
+- Operator control
+
+<p align="center">
+    <img src="images/field-tests/pool_demonstration.jpg" width="48%">
+    <img src="images/field-tests/water_operation.jpg" width="48%">
+</p>
+
+The platform demonstrated stable navigation and satisfactory control throughout the test sessions.
+
+---
+
+## Real-World Validation
+
+After successful laboratory validation, AquaRescue was tested in a natural aquatic environment near Tabuba Beach (Ceará, Brazil).
+
+These experiments introduced additional engineering challenges such as:
+
+- Water movement
+- Variable lighting conditions
+- Greater operating distances
+- Environmental disturbances
+
+The platform maintained reliable operation and successfully transmitted live underwater images to the operator station.
+
+---
+
+## Computer Vision Validation
+
+The computer vision subsystem was evaluated using real-time video transmitted from the underwater camera.
+
+Python and OpenCV processed incoming frames and highlighted detected people directly on the operator interface.
+
+The tests demonstrated that the proposed architecture was capable of assisting operators by providing automatic visual cues during underwater inspection.
+
+<p align="center">
+    <img src="images/computer-vision/ai_detection.jpg" width="75%">
+</p>
+
+---
+
+## Evaluation with Firefighters
+
+One of the most important stages of the project involved demonstrations for firefighters from:
+
+- Colégio Militar do Corpo de Bombeiros do Ceará (CMCB)
+- Corpo de Bombeiros Militar do Ceará (CBMCE)
+- Search and Rescue Battalion (BBS)
+
+These demonstrations allowed technical discussions regarding operational applicability, usability, and possible future improvements for rescue missions.
+
+Although AquaRescue was developed as a research prototype, interactions with experienced rescue professionals provided valuable feedback that influenced several engineering decisions throughout the project.
+
+---
+
+## Validation Summary
+
+| Aspect | Result |
+|---------|--------|
+| Mechanical Stability | ✅ Validated |
+| Catamaran Flotation | ✅ Validated |
+| Differential Propulsion | ✅ Validated |
+| Camera Deployment | ✅ Validated |
+| Wireless Video Streaming | ✅ Validated |
+| Embedded Control | ✅ Validated |
+| Computer Vision | ✅ Functional |
+| Field Demonstration | ✅ Successfully Performed |
+
+The validation campaign demonstrated that the proposed low-cost architecture is technically feasible and capable of supporting future research aimed at robotic assistance during aquatic search operations.
+
+---
