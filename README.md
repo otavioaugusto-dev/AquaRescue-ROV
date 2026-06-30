@@ -221,3 +221,101 @@ These tests evaluated propulsion, maneuverability, wireless communication, under
 The successful validation of these tests demonstrated the feasibility of using affordable embedded technologies to support aquatic search missions.
 
 ---
+
+# Engineering Decisions
+
+AquaRescue was not designed by simply assembling available electronic components.
+
+Throughout development, every major subsystem resulted from engineering trade-offs involving cost, reliability, manufacturability, maintainability, and operational requirements.
+
+The following decisions significantly influenced the final architecture.
+
+---
+
+## Why a Catamaran?
+
+Instead of adopting a conventional monohull design, the platform was built as a catamaran.
+
+This configuration offers several engineering advantages:
+
+- Higher buoyancy
+- Improved lateral stability
+- Larger payload capacity
+- Reduced risk of capsizing
+- Better support for lowering the underwater camera
+
+These characteristics were particularly important because the platform needed to remain stable while operating the camera deployment mechanism and carrying batteries, embedded electronics, and propulsion components.
+
+---
+
+## Why Arduino Uno?
+
+Although more powerful microcontrollers were available, the Arduino Uno was selected as the primary embedded controller because it provided:
+
+- Proven reliability
+- Extensive educational ecosystem
+- Rapid prototyping capabilities
+- Easy hardware integration
+- Simple maintenance and troubleshooting
+
+Its processing capacity was fully adequate for low-level control tasks such as propulsion, lighting, winch operation, and wireless command processing.
+
+---
+
+## Why ESP32-CAM?
+
+Image processing is computationally demanding.
+
+Rather than executing computer vision onboard, the ESP32-CAM was used exclusively for image acquisition and wireless video streaming.
+
+This architecture offers several advantages:
+
+- Reduced onboard computational load
+- Higher image processing performance
+- Lower hardware cost
+- Simplified firmware
+- Easier software upgrades
+
+The notebook receives the video stream and performs computer vision inference using Python and OpenCV.
+
+---
+
+## Why External Computer Vision?
+
+Running computer vision on an external computer allowed significantly greater flexibility during development.
+
+Algorithms could be modified, tested, and optimized without changing the embedded firmware.
+
+This architecture also enables future migration to more advanced deep learning models without redesigning the robotic platform itself.
+
+---
+
+## Why Low-Cost Components?
+
+One of the project's primary objectives was to demonstrate that engineering solutions for public safety do not necessarily require expensive hardware.
+
+Whenever technically feasible, recycled or commercially available components were used, including:
+
+- PVC pipes
+- Aluminum profiles
+- Automotive mechanisms
+- Printer components
+- Consumer electronic devices
+
+This approach reduced development costs while maintaining adequate performance for prototype validation.
+
+---
+
+## Design Philosophy
+
+Every engineering decision followed five fundamental principles:
+
+- Functionality before complexity
+- Modular architecture
+- Cost-effectiveness
+- Ease of maintenance
+- Real-world applicability
+
+These principles allowed AquaRescue to evolve into a robust research prototype while remaining accessible for educational institutions and future research initiatives.
+
+---
