@@ -151,3 +151,73 @@ The platform was designed according to the following principles:
 These principles guided every stage of the project, from the initial concept to the final prototype presented at national scientific exhibitions.
 
 ---
+
+# Development Journey
+
+The development of AquaRescue followed an iterative engineering process, evolving from an initial concept into a fully functional research prototype validated through laboratory and field tests.
+
+Rather than focusing solely on the final result, the project emphasized continuous prototyping, testing, and refinement throughout its development cycle.
+
+---
+
+## Concept & Early Prototype
+
+The project began with brainstorming sessions focused on identifying real problems faced by firefighters during aquatic rescue operations.
+
+Early prototypes were developed to validate flotation, structural stability, and the feasibility of integrating a submerged vision system into a lightweight catamaran platform.
+
+<p align="center">
+    <img src="images/prototype/floating_prototype.jpg" width="48%">
+    <img src="images/prototype/camera_prototype.jpg" width="48%">
+</p>
+
+---
+
+## Mechanical and Electronic Development
+
+After validating the initial concept, the project entered the engineering phase.
+
+During this stage, the propulsion system, waterproof electronics enclosure, RF control system, LED lighting, underwater camera winch, and embedded electronics were progressively integrated into the platform.
+
+<p align="center">
+    <img src="images/electronics/rf_controller.jpg" width="31%">
+    <img src="images/construction/motors_test.jpg" width="31%">
+    <img src="images/electronics/camera_winch.jpg" width="31%">
+</p>
+
+<br>
+
+<p align="center">
+    <img src="images/construction/giroflex_test.jpg" width="31%">
+    <img src="images/construction/led_bar_test.jpg" width="31%">
+    <img src="images/construction/completed_prototype.jpg" width="31%">
+</p>
+
+---
+
+## Computer Vision
+
+The underwater video stream was transmitted wirelessly to a notebook, where Python and OpenCV processed each frame in real time.
+
+The computer vision subsystem was capable of detecting people and assisting the operator during underwater search operations.
+
+<p align="center">
+    <img src="images/computer-vision/ai_detection.jpg" width="75%">
+</p>
+
+---
+
+## Field Validation
+
+Once the mechanical and electronic systems were integrated, AquaRescue underwent practical validation in controlled aquatic environments.
+
+These tests evaluated propulsion, maneuverability, wireless communication, underwater visibility, and computer vision performance under realistic operating conditions.
+
+<p align="center">
+    <img src="images/field-tests/pool_demonstration.jpg" width="48%">
+    <img src="images/field-tests/water_operation.jpg" width="48%">
+</p>
+
+The successful validation of these tests demonstrated the feasibility of using affordable embedded technologies to support aquatic search missions.
+
+---
