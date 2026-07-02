@@ -1,1 +1,12 @@
+STREAM_URL = "http://192.168.4.1:81/stream"
 
+USE_WEBCAM = False
+WEBCAM_INDEX = 0
+
+FRAME_WIDTH = 640
+
+CONFIDENCE_THRESHOLD = 0.5
+
+WINDOW_NAME = "AquaRescue Vision"
+
+EXIT_KEY = ord("q")
