@@ -1,151 +1,104 @@
 # Computer Vision
 
-The computer vision subsystem is responsible for assisting the operator during aquatic search missions by processing the live video stream transmitted from the robotic platform.
+Computer vision subsystem of the AquaRescue ROV.
 
-Instead of performing image processing onboard the robot, AquaRescue adopts a distributed architecture in which image acquisition and computer vision are executed on different devices.
+The system is responsible for receiving the video stream from the onboard camera and processing the frames on a computer to assist in the recognition of people in the aquatic environment.
 
-This approach significantly reduces the computational requirements of the embedded hardware while allowing more sophisticated image processing algorithms to be executed on a notebook.
+## Architecture
 
----
-
-# Objectives
-
-The subsystem was designed to:
-
-- Receive the live video stream transmitted by the ESP32-CAM.
-- Process incoming frames in real time.
-- Detect people using computer vision techniques.
-- Highlight detections on the operator's screen.
-- Assist firefighters during search operations.
-
-The objective is not to replace human decision-making, but to provide visual assistance capable of reducing operator workload during prolonged missions.
-
----
-
-# Architecture
-
-The computer vision pipeline is divided into two independent stages.
-
-## Image Acquisition
-
-The ESP32-CAM operates exclusively as a streaming server.
-
-Its responsibilities include:
-
-- Capturing images.
-- Encoding frames.
-- Streaming MJPEG over Wi-Fi.
-
-No computer vision processing is executed onboard.
-
----
-
-## Image Processing
-
-A notebook receives the video stream and executes the detection algorithm using Python and OpenCV.
-
-Separating acquisition from processing provides:
-
-- Higher processing capability.
-- Easier algorithm development.
-- Lower embedded hardware requirements.
-- Greater flexibility for future AI upgrades.
-
----
-
-# Processing Pipeline
-
-```
+```text
+Camera
+   │
+   ▼
 ESP32-CAM
-      │
-      ▼
- MJPEG Stream
-      │
-      ▼
- OpenCV
-      │
-      ▼
- Frame Capture
-      │
-      ▼
- Person Detection
-      │
-      ▼
- Bounding Boxes
-      │
-      ▼
- Operator Display
+   │
+   │ HTTP / MJPEG
+   ▼
+Local Wi-Fi Network
+   │
+   ▼
+Computer
+   │
+   ▼
+OpenCV DNN
+   │
+   ▼
+MobileNet SSD
+   │
+   ▼
+Person Detection
+   │
+   ▼
+Operator Interface
 ```
 
----
+## Directory Structure
 
-# Software Stack
-
-| Component | Technology |
-|------------|------------|
-| Programming Language | Python |
-| Computer Vision | OpenCV |
-| Streaming | MJPEG |
-| Embedded Camera | ESP32-CAM |
-| Video Capture | OpenCV VideoCapture |
-| Operating System | Windows |
-
----
-
-# Repository Structure
-
-```
+```text
 computer-vision/
-
-README.md
-
-detect_people/
-
-models/
+├── README.md
+│
+└── detect_people/
+    ├── main.py
+    ├── config.py
+    ├── requirements.txt
+    ├── README.md
+    │
+    └── models/
+        └── README.md
 ```
 
----
+## Detection Module
 
-# Experimental Results
+The implementation is located in:
 
-During field validation, the subsystem successfully:
+```text
+detect_people/
+```
 
-- Received the wireless video stream.
-- Processed frames in real time.
-- Detected people visible in the camera.
-- Displayed detections to the operator.
+The module provides:
 
-The system demonstrated the feasibility of combining low-cost embedded hardware with external computer vision processing for search assistance.
+- Camera stream acquisition
+- Image preprocessing
+- Person detection
+- Confidence filtering
+- Bounding box visualization
+- FPS monitoring
 
----
+Detailed installation and execution instructions are available in:
 
-# Current Limitations
+```text
+detect_people/README.md
+```
 
-The current implementation presents some limitations:
+## Camera Integration
 
-- Detection depends on image quality.
-- Lighting conditions influence performance.
-- Water turbidity reduces visibility.
-- Only person detection was implemented.
-- No object tracking was employed.
+The original AquaRescue architecture used an ESP32-CAM as the camera interface.
 
-These limitations are expected in low-cost research prototypes and provide opportunities for future improvements.
+The ESP32-CAM provides the video stream over the local network, while computationally intensive image processing is performed externally on a computer.
 
----
+This division keeps the embedded system lightweight while allowing the computer to perform the computer vision workload.
 
-# Future Improvements
+## Processing
 
-Possible future developments include:
+The current implementation uses:
 
-- YOLOv8 integration.
-- Object tracking.
-- Semantic segmentation.
-- Underwater image enhancement.
-- GPU acceleration.
-- Automatic target classification.
-- Multi-object detection.
-- Sonar data fusion.
+- Python
+- OpenCV
+- OpenCV DNN
+- MobileNet SSD
+- NumPy
 
----
+The detection model runs on the computer rather than directly on the ESP32-CAM.
 
-This module documents the complete computer vision architecture adopted by AquaRescue and complements the engineering information presented in the main repository.
+## Operational Concept
+
+During operation, the camera provides the visual information required by the operator.
+
+The computer vision subsystem processes the incoming frames and highlights detected people, providing an additional layer of assistance during search and reconnaissance.
+
+## Historical Context
+
+The AquaRescue project was originally developed and tested as a robotic platform for assisting in the recognition and localization of potential drowning victims.
+
+The current repository organizes and documents the computer vision subsystem so that the implementation can be reproduced and further developed..
