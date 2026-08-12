@@ -1,145 +1,167 @@
-# Person Detection Module
+# AquaRescue Person Detection
 
-This module implements the computer vision pipeline responsible for detecting people in the live video stream transmitted by the AquaRescue robotic platform.
+Computer vision module developed for the AquaRescue ROV project.
 
-The implementation was developed as a proof of concept to assist operators during aquatic search missions by automatically highlighting people visible in the incoming video.
+The module receives video frames from a webcam or an ESP32-CAM stream and uses a MobileNet SSD model through OpenCV's DNN module to detect people in the image.
 
-Although originally designed for AquaRescue, the detection pipeline can also be adapted for other computer vision applications based on ESP32-CAM or conventional webcams.
+## System Pipeline
 
----
-
-# Objectives
-
-The software performs the following tasks:
-
-- Connect to the ESP32-CAM video stream.
-- Receive MJPEG frames in real time.
-- Decode incoming frames.
-- Execute person detection.
-- Draw bounding boxes around detected people.
-- Display the processed video to the operator.
-
-The system provides visual assistance only.
-
-Final decisions always remain under human supervision.
-
----
-
-# Processing Pipeline
-
-```
-ESP32-CAM
-      │
-      ▼
- MJPEG Stream
-      │
-      ▼
-OpenCV VideoCapture
-      │
-      ▼
-Frame Acquisition
-      │
-      ▼
-Person Detection
-      │
-      ▼
-Bounding Box Rendering
-      │
-      ▼
-Operator Screen
+```text
+ESP32-CAM / Webcam
+        │
+        ▼
+   Video Stream
+        │
+        ▼
+   OpenCV Capture
+        │
+        ▼
+ Image Preprocessing
+        │
+        ▼
+   MobileNet SSD
+        │
+        ▼
+ Person Detection
+        │
+        ▼
+ Bounding Box + Confidence
+        │
+        ▼
+ Operator Display
 ```
 
----
+## Features
 
-# Software Architecture
+- Real-time person detection
+- Webcam support
+- ESP32-CAM MJPEG stream support
+- Confidence threshold configuration
+- Bounding box visualization
+- Detection confidence display
+- Real-time FPS display
+- Lightweight inference through OpenCV DNN
 
-The software is organized as a sequential processing pipeline.
+## Requirements
 
-1. Connect to the video stream.
-2. Capture a frame.
-3. Preprocess the image.
-4. Execute person detection.
-5. Draw bounding boxes.
-6. Display the processed frame.
-7. Repeat until interrupted.
+Python 3.10 or newer is recommended.
 
-This architecture prioritizes simplicity, robustness, and ease of maintenance.
-
----
-
-# Main Technologies
-
-| Component | Technology |
-|------------|------------|
-| Language | Python |
-| Vision Library | OpenCV |
-| Stream Protocol | MJPEG |
-| Image Processing | NumPy |
-| Camera | ESP32-CAM |
-
----
-
-# Repository Contents
-
-```
-detect_people/
-
-README.md
-
-main.py
-
-requirements.txt
-```
-
----
-
-# Running the Software
-
-Install the required libraries:
+Install the dependencies with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Edit the ESP32-CAM IP address inside `main.py`.
+## Model
 
-Then run:
+The system uses MobileNet SSD.
+
+The required model files are documented in:
+
+```text
+models/README.md
+```
+
+The expected structure is:
+
+```text
+detect_people/
+├── main.py
+├── config.py
+├── requirements.txt
+├── README.md
+└── models/
+    ├── MobileNetSSD_deploy.prototxt
+    ├── MobileNetSSD_deploy.caffemodel
+    └── README.md
+```
+
+## Configuration
+
+The main configuration parameters are located in:
+
+```text
+config.py
+```
+
+### Camera source
+
+For a webcam:
+
+```python
+USE_WEBCAM = True
+WEBCAM_INDEX = 0
+```
+
+For an ESP32-CAM stream:
+
+```python
+USE_WEBCAM = False
+STREAM_URL = "http://<ESP32-IP>:81/stream"
+```
+
+The exact stream address depends on the network configuration of the ESP32-CAM.
+
+### Detection threshold
+
+The minimum confidence required for a detection can be adjusted with:
+
+```python
+CONFIDENCE_THRESHOLD = 0.50
+```
+
+Higher values reduce false detections but may cause less confident people to be ignored.
+
+## Running
+
+After installing the dependencies and placing the required model files in `models/`, run:
 
 ```bash
 python main.py
 ```
 
-The processed video stream will be displayed in a window showing detected people highlighted with bounding boxes.
+The detection window will display the camera feed with bounding boxes around detected people.
 
----
+Press:
 
-# Current Limitations
+```text
+Q
+```
 
-Current implementation limitations include:
+to exit.
 
-- Fixed camera position
-- Dependence on lighting conditions
-- Reduced performance in turbid water
-- Single-class detection (person)
-- No tracking between frames
+## Output
 
-These limitations are acceptable for an educational research prototype.
+When a person is detected, the system displays:
 
----
+```text
+Person (XX%)
+```
 
-# Future Improvements
+together with a bounding box around the detected region.
 
-Possible future upgrades include:
+The current FPS is also displayed in the upper-left corner of the window.
 
-- YOLOv8
-- MobileNet SSD
-- Multi-object detection
-- GPU acceleration
-- Image enhancement
-- Confidence filtering
-- Object tracking
-- Underwater image restoration
+## Project Context
 
----
+The computer vision subsystem is part of the AquaRescue robotic platform developed for the recognition and localization of potential drowning victims.
 
-This module demonstrates the feasibility of combining low-cost embedded hardware with computer vision techniques to support public safety applications.
+In the original system, the camera was connected to an ESP32-CAM, which transmitted the video stream to a computer. The computer performed the image processing and displayed the detected person to the operator.
+
+This repository preserves that operational architecture while providing a reproducible implementation of the detection subsystem.
+
+## Limitations
+
+The detector depends on the quality of the incoming video stream.
+
+Performance may be affected by:
+
+- Low image resolution
+- Poor lighting
+- Water turbidity
+- Occlusion
+- Distance from the target
+- Camera movement
+- Network latency
+
+The system is intended as an operator-assistance tool and should not be considered a replacement for human observation or professional rescue procedures.
